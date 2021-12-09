@@ -6,26 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.sofunty.cn">
-  <title>有了SDKMAN,安装的系统装环境再也不用去一个个找包了 | So.Blog</title>
+  <title>k8s搭建 | So.Blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="🌟Software：SDKMAN 🌟123Install：$ curl -s &quot;https:&#x2F;&#x2F;get.sdkman.io&quot; | bash$ source &quot;$HOME&#x2F;.sdkman&#x2F;bin&#x2F;sdkman-init.sh&quot;   以下内容均在Ubuntu20.10下的操作，其他环境也都ok，详情官网康康，官网SDK👱  没问题的话，查看一下：👇👇�">
+  <meta name="description" content="🙊k8s玩耍环境搭建（CentOS Stream release 8 + k8s v1.22.4）一直想自己搭建一个自己玩耍，但又由于没有足够资源的服务器:weary:，一直迟迟未操作。   😈终于，十一假期在老家添置了一台垃圾佬配置DELL R720xd，废话少说，开整🌙">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有了SDKMAN,安装的系统装环境再也不用去一个个找包了">
-<meta property="og:url" content="https://blog.sofunty.cn/2021/04/02/sdkman/index.html">
+<meta property="og:title" content="k8s搭建">
+<meta property="og:url" content="https://blog.sofunty.cn/2021/12/09/k8s-build/index.html">
 <meta property="og:site_name" content="So.Blog">
-<meta property="og:description" content="🌟Software：SDKMAN 🌟123Install：$ curl -s &quot;https:&#x2F;&#x2F;get.sdkman.io&quot; | bash$ source &quot;$HOME&#x2F;.sdkman&#x2F;bin&#x2F;sdkman-init.sh&quot;   以下内容均在Ubuntu20.10下的操作，其他环境也都ok，详情官网康康，官网SDK👱  没问题的话，查看一下：👇👇�">
+<meta property="og:description" content="🙊k8s玩耍环境搭建（CentOS Stream release 8 + k8s v1.22.4）一直想自己搭建一个自己玩耍，但又由于没有足够资源的服务器:weary:，一直迟迟未操作。   😈终于，十一假期在老家添置了一台垃圾佬配置DELL R720xd，废话少说，开整🌙">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.sofunty.cn/2021/04/11/sdkman/sdk1.png">
-<meta property="og:image" content="https://blog.sofunty.cn/2021/04/11/sdkman/sdk2.png">
-<meta property="article:published_time" content="2021-04-02T12:11:26.000Z">
-<meta property="article:modified_time" content="2021-12-02T14:01:11.659Z">
+<meta property="og:image" content="http://so-blog.oss-cn-shenzhen.aliyuncs.com/files/favicon.svg">
+<meta property="og:image" content="https://blog.sofunty.cn/home/sofunty/Pictures/2021-12-09%2022-26-40%20的屏幕截图.png">
+<meta property="article:published_time" content="2021-12-09T12:57:29.000Z">
+<meta property="article:modified_time" content="2021-12-09T14:49:12.500Z">
 <meta property="article:author" content="寒风">
-<meta property="article:tag" content="sdkman">
-<meta property="article:tag" content="环境配置">
+<meta property="article:tag" content="k8s">
+<meta property="article:tag" content="CentOS Stream release 8">
+<meta property="article:tag" content="k8s v1.22.4">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.sofunty.cn/2021/04/11/sdkman/sdk1.png">
+<meta name="twitter:image" content="http://so-blog.oss-cn-shenzhen.aliyuncs.com/files/favicon.svg">
   
     <link rel="alternative" href="/atom.xml" title="So.Blog" type="application/atom+xml">
   
@@ -133,14 +134,14 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sdkman" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-k8s-build" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      有了SDKMAN,安装的系统装环境再也不用去一个个找包了
+      k8s搭建
     </h1>
   
 
@@ -152,8 +153,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/04/02/sdkman/" class="archive-article-date">
-        <time datetime="2021-04-02T12:11:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-02</time>
+<a href="/2021/12/09/k8s-build/" class="archive-article-date">
+        <time datetime="2021-12-09T12:57:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-09</time>
 </a>
 
   
@@ -166,7 +167,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">296字</span>
+      <span class="post-count">1.8k字</span>
     </span>
   </span>
 
@@ -175,7 +176,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -186,36 +187,81 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="🌟Software：SDKMAN-🌟"><a href="#🌟Software：SDKMAN-🌟" class="headerlink" title="🌟Software：SDKMAN 🌟"></a>🌟Software：SDKMAN 🌟</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Install：</span><br><span class="line">$ curl -s &quot;https://get.sdkman.io&quot; | bash</span><br><span class="line">$ source &quot;$HOME/.sdkman/bin/sdkman-init.sh&quot;</span><br></pre></td></tr></table></figure>
+    <h2 id="🙊k8s玩耍环境搭建（CentOS-Stream-release-8-k8s-v1-22-4）"><a href="#🙊k8s玩耍环境搭建（CentOS-Stream-release-8-k8s-v1-22-4）" class="headerlink" title="🙊k8s玩耍环境搭建（CentOS Stream release 8 + k8s v1.22.4）"></a>🙊k8s玩耍环境搭建（CentOS Stream release 8 + k8s v1.22.4）</h2><p>一直想自己搭建一个自己玩耍，但又由于没有足够资源的服务器:weary:，一直迟迟未操作。</p>
+<img src="http://so-blog.oss-cn-shenzhen.aliyuncs.com/files/favicon.svg" style="zoom:25%;" />
 
-<ul>
-<li>以下内容均在Ubuntu20.10下的操作，其他环境也都ok，详情官网康康，官网<a target="_blank" rel="noopener" href="https://sdkman.io/">SDK👱</a></li>
-</ul>
-<p>没问题的话，查看一下：👇👇👇</p>
+<p>😈终于，十一假期在老家添置了一台垃圾佬配置DELL R720xd，废话少说，开整🌙</p>
 <span id="more"></span>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sdk version</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>1️⃣准备几台机子💻</p>
+<p>这里准备的配置是(2h+4G+80G)，应该勉强够玩，不够了再ESXI添配置</p>
+<p>![](<a target="_blank" rel="noopener" href="http://so-blog.oss-cn-shenzhen.aliyuncs.com/files/2021-12-09">http://so-blog.oss-cn-shenzhen.aliyuncs.com/files/2021-12-09</a> 21-09-45.png)</p>
+</li>
+<li><p>2️⃣网络等基础配置设置</p>
+<p>分别设置，三台机子给个名字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname c1</span><br><span class="line">hostnamectl set-hostname c2</span><br><span class="line">hostnamectl set-hostname c3</span><br></pre></td></tr></table></figure>
 
-<p>🌈安装后的文件默认是实在当前用户下的 ~/.sdkman 路径下，之后安装的所有环境包在 ~/.sdkman/candidates下</p>
-<p>原来大概就是，sdkman把ta安装的所有依赖计入存储，然后在对于的每种依赖种有一个current链接指向对于的版本，以此做到版本切换，也就只需修改这个current指向的版本来做环境切换(其实我以前也是这个干的，只是每个都得自己去制定修改)</p>
-<img src="https://blog.sofunty.cn/2021/04/11/sdkman/sdk1.png" alt="img" style="zoom:33%;" />
+<p>设置静态ip，分别执行（注意修改ip，设置静态ip，PEERDNS=no为防止重启后dns配置丢失）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/BOOTPROTO=dhcp/BOOTPROTO=static/g&#x27; /etc/sysconfig/network-scripts/ifcfg-ens192</span><br><span class="line">echo &#x27;</span><br><span class="line">IPADDR=192.168.0.31</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.0.1</span><br><span class="line">PEERDNS=no</span><br><span class="line">&#x27; &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-ens192</span><br><span class="line">echo &#x27;</span><br><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">&#x27; &gt;&gt; /etc/resolv.conf</span><br><span class="line">echo &#x27;</span><br><span class="line">192.168.0.31    c1</span><br><span class="line">192.168.0.32    c2</span><br><span class="line">192.168.0.33    c3</span><br><span class="line">&#x27; &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
 
-<h4 id="SDKMAN使用方法："><a href="#SDKMAN使用方法：" class="headerlink" title="SDKMAN使用方法："></a>SDKMAN使用方法：</h4><p>看一下help应该就都能看懂了</p>
-<img src="https://blog.sofunty.cn/2021/04/11/sdkman/sdk2.png" alt="img" style="zoom: 33%;" />
+<p>ssh免密，分别执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">ssh-copy-id -i /root/.ssh/id_rsa.pub c1</span><br><span class="line">ssh-copy-id -i /root/.ssh/id_rsa.pub c2</span><br><span class="line">ssh-copy-id -i /root/.ssh/id_rsa.pub c3</span><br></pre></td></tr></table></figure>
 
-<h6 id="栗子🌰"><a href="#栗子🌰" class="headerlink" title="栗子🌰"></a>栗子🌰</h6><ul>
-<li><p>$ sdk list manven</p>
-</li>
-<li><p>$ sdk install maven 3.8.1</p>
-</li>
-<li><p>$ sdk install maven 3.6.3</p>
-</li>
-<li><p>$ sdk use maven 3.8.1</p>
-<p>相当的简单，简单环境安装和切换的话给大家安利一下！</p>
-<p>舒服💆‍</p>
-</li>
+<p>关闭防🔥墙</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable --now firewalld</span><br></pre></td></tr></table></figure>
+
+<p>前置设置(关闭swap、selinux，设置几个内核参数，加载br_netfilter模块)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0 &amp;&amp; swapoff -a &amp;&amp; sed -i &#x27;s/.*swap.*/#&amp;/&#x27; /etc/fstab</span><br><span class="line">systemctl stop firewalld &amp;&amp; systemctl disable firewalld</span><br><span class="line">sysctl net.bridge.bridge-nf-call-iptables=1</span><br><span class="line">sysctl net.bridge.bridge-nf-call-ip6tables=1</span><br><span class="line">sysctl vm.max_map_count=262144</span><br><span class="line">modprobe br_netfilter &amp;&amp; sysctl -p</span><br><span class="line"></span><br><span class="line">#简单指令换一下，个人喜好，可忽略</span><br><span class="line">ln -s /bin/clear /bin/cls</span><br><span class="line">#yum那句没中文的报错内容是太难受了</span><br><span class="line">echo &quot;export LC_ALL=en_US.UTF-8&quot; &gt;&gt; /etc/profile &amp;&amp; source /etc/profile</span><br></pre></td></tr></table></figure></li>
+<li><p>3️⃣install docker</p>
+<p>建议直接按照文档走👉<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/">dokcer docs</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br><span class="line">yum install -y yum-utils &amp;&amp; yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">#添加自己的阿里云镜像加速地址</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://********.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable --now docker</span><br></pre></td></tr></table></figure></li>
+<li><p>4️⃣安装k8s</p>
+<p>添加yum源，如果服务器可以直接外网🇨🇳，可使用k8s官网上的配置👉<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">k8s docs</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | tee /etc/yum.repos.d/kubernetes.repo</span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">repo_gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF</span><br><span class="line">yum update</span><br><span class="line"></span><br><span class="line">yum clean packages</span><br><span class="line">yum install -y kubelet-1.22.4 </span><br><span class="line">yum install -y kubeadm-1.22.4 </span><br><span class="line">yum install -y kubectl-1.22.4</span><br><span class="line"></span><br><span class="line">systemctl enable --now kubelet</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>插播一个设置，时钟同步</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | tee /etc/chrony.conf</span><br><span class="line">server ntp.aliyun.com iburst</span><br><span class="line">server ntp1.aliyun.com iburst</span><br><span class="line">server ntp2.aliyun.com iburst</span><br><span class="line">server ntp3.aliyun.com iburst</span><br><span class="line">driftfile /var/lib/chrony/drift</span><br><span class="line">makestep 1.0 3</span><br><span class="line">rtcsync</span><br><span class="line">keyfile /etc/chrony.keys</span><br><span class="line">leapsectz right/UTC</span><br><span class="line">logdir /var/log/chrony</span><br><span class="line">EOF</span><br><span class="line">timedatectl set-timezone Asia/Shanghai</span><br><span class="line">systemctl enable --now chronyd</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>（好用的东西记录一下）OK Ending.🕺<br>（但是作为爱捣鼓的，当然还是手动安装一遍又一遍，满足，阿巴阿巴阿巴）</p>
+<p>💔问题来了，kubelet起不来，看看状态🔍</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl status kubelet </span><br><span class="line">[root@c1 ~]# systemctl status kubelet</span><br><span class="line">● kubelet.service - kubelet: The Kubernetes Node Agent</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/kubelet.service; enabled; vendor preset: disabled)</span><br><span class="line">  Drop-In: /usr/lib/systemd/system/kubelet.service.d</span><br><span class="line">           └─10-kubeadm.conf</span><br></pre></td></tr></table></figure>
+
+<p>编辑Drop-In中指向的文件，指定kubelet的cgroup driver，保持和docker的一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf</span><br><span class="line">[Service]后面添加</span><br><span class="line">Environment=&quot;KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs&quot;</span><br><span class="line">最后参数添加</span><br><span class="line">$KUBELET_CGROUP_ARGS</span><br><span class="line">然后</span><br><span class="line">vi /etc/sysconfig/kubelet</span><br><span class="line">追加</span><br><span class="line">--fail-swap-on=false</span><br><span class="line">#重启kubelet</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart kubelet</span><br></pre></td></tr></table></figure></li>
+<li><p>5️⃣kubeadm初始化集群</p>
+<p>指定一些参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init \</span><br><span class="line">    --kubernetes-version=1.22.4 \</span><br><span class="line">    --image-repository registry.aliyuncs.com/google_containers \</span><br><span class="line">    --apiserver-advertise-address=192.168.0.31 \</span><br><span class="line">    --pod-network-cidr=10.10.0.0/16 \</span><br><span class="line">    --service-cidr=10.20.0.0/16 \</span><br><span class="line">    --token-ttl=0</span><br></pre></td></tr></table></figure>
+
+<p>参数描述👇</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">--apiserver-advertise-address string   设置 apiserver 绑定的 IP.</span><br><span class="line">   --apiserver-bind-port int32            设置apiserver 监听的端口. (默认 6443)</span><br><span class="line">   --apiserver-cert-extra-sans strings    api证书中指定额外的Subject Alternative Names (SANs) 可以是IP 也可以是DNS名称。 证书是和SAN绑定的。</span><br><span class="line">   --cert-dir string                      证书存放的目录 (默认 &quot;/etc/kubernetes/pki&quot;)</span><br><span class="line">   --certificate-key string                kubeadm-cert secret 中 用于加密 control-plane 证书的key</span><br><span class="line">   --config string                         kubeadm 配置文件的路径.</span><br><span class="line">   --cri-socket string                    CRI socket 文件路径，如果为空 kubeadm 将自动发现相关的socket文件; 只有当机器中存在多个 CRI  socket 或者 存在非标准 CRI socket 时才指定.</span><br><span class="line">   --dry-run                              测试，并不真正执行;输出运行后的结果.</span><br><span class="line">   --feature-gates string                 指定启用哪些额外的feature 使用 key=value 对的形式。</span><br><span class="line">  --help  -h                             帮助文档</span><br><span class="line">   --ignore-preflight-errors strings       忽略前置检查错误，被忽略的错误将被显示为警告. 例子: &#x27;IsPrivilegedUser,Swap&#x27;. Value &#x27;all&#x27; ignores errors from all checks.</span><br><span class="line">   --image-repository string              选择拉取 control plane images 的镜像repo (default &quot;k8s.gcr.io&quot;)</span><br><span class="line">   --kubernetes-version string            选择K8S版本. (default &quot;stable-1&quot;)</span><br><span class="line">   --node-name string                     指定node的名称，默认使用 node 的 hostname.</span><br><span class="line">   --pod-network-cidr string              指定 pod 的网络， control plane 会自动将 网络发布到其他节点的node，让其上启动的容器使用此网络</span><br><span class="line">   --service-cidr string                  指定service 的IP 范围. (default &quot;10.96.0.0/12&quot;)</span><br><span class="line">   --service-dns-domain string            指定 service 的 dns 后缀, e.g. &quot;myorg.internal&quot;. (default &quot;cluster.local&quot;)</span><br><span class="line">   --skip-certificate-key-print            不打印 control-plane 用于加密证书的key.</span><br><span class="line">   --skip-phases strings                  跳过指定的阶段（phase）</span><br><span class="line">   --skip-token-print                     不打印 kubeadm init 生成的 default bootstrap token </span><br><span class="line">   --token string                         指定 node 和control plane 之间，简历双向认证的token ，格式为 [a-z0-9]&#123;6&#125;\.[a-z0-9]&#123;16&#125; - e.g. abcdef.0123456789abcdef</span><br><span class="line">   --token-ttl duration                   token 自动删除的时间间隔。 (e.g. 1s, 2m, 3h). 如果设置为 &#x27;0&#x27;, token 永不过期 (default 24h0m0s)</span><br><span class="line">   --upload-certs                         上传 control-plane 证书到 kubeadm-certs Secret.</span><br></pre></td></tr></table></figure></li>
+<li><p>6️⃣问题又来了</p>
+<p>按步骤我一次的操作是能初始话成功，如果失败了可以kubeadm reset后再次初始化，</p>
+<p>按照集群初始化完的几乎描述，完成几个基础配置（就快好了😆）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line"></span><br><span class="line">echo &quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot; &gt;&gt; /etc/profile</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br><span class="line">把join的那句也复制出来先，并在c2、c3上执行下</span><br><span class="line">kubeadm join 192.168.0.31:6443 --token *****.************ \</span><br><span class="line">	--discovery-token-ca-cert-hash sha256:*************************</span><br></pre></td></tr></table></figure>
+
+<p>查看👧pod们的状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+
+<p>然后发现两个坏👧不太愿意启动，codedns的两个</p>
+<p>这个时候给他添加[flannel网络插件]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure>
+
+<p>这里可以添加raw.githubusercontent.com在hosts中对应ip查询到的信息，或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://sofunty.oss-cn-shenzhen.aliyuncs.com/k8s/kube-flannel.yml</span><br><span class="line">kubectl apply -f kube-flannel.yml</span><br></pre></td></tr></table></figure>
+
+<p>注意这里的pod网段，kubeadm中指定了pod的网段，所以我这里也对应改了一下</p>
+<p>！！！🔥🔥🔥问题又来了，kube-flannel-*****的👧一直起不来，搜了搜，镜像拉不到😭</p>
+<p>好吧，给docker搭把手💪，本地电脑pull下来后导出image再scp上去load input</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker pull rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.0</span><br><span class="line">docker pull quay.io/coreos/flannel:v0.15.1</span><br><span class="line">docker save -o ./flannel-cni.tar rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.0</span><br><span class="line">docker save -0 ./flannel.tar quay.io/coreos/flannel:v0.15.1</span><br><span class="line">scp ./*.tar root@192.168.0.30:/root/</span><br><span class="line"></span><br><span class="line">c1上再</span><br><span class="line">docker load --input flannel-cni.tar &amp;&amp; docker load --input flannel.tar</span><br><span class="line">同样也scp到c2、c3导入</span><br></pre></td></tr></table></figure>
+
+<p>解决的方式有点硬了，😬😬😬</p>
+<p>后面reboot🖥️等待</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get node</span><br></pre></td></tr></table></figure>
+
+<img src="/home/sofunty/Pictures/2021-12-09 22-26-40 的屏幕截图.png" style="zoom:50%;" /></li>
+</ul>
+<p>​        🤤🤤🤤🤤    🤤嘿 嘿嘿  嘿嘿</p>
 
     
 
@@ -230,7 +276,7 @@ var _hmt = _hmt || [];
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://blog.sofunty.cn/2021/04/02/sdkman/" title="有了SDKMAN,安装的系统装环境再也不用去一个个找包了" target="_blank">https://blog.sofunty.cn/2021/04/02/sdkman/</a>
+          <a href="https://blog.sofunty.cn/2021/12/09/k8s-build/" title="k8s搭建" target="_blank">https://blog.sofunty.cn/2021/12/09/k8s-build/</a>
         </li>
         
         <li>
@@ -252,11 +298,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">sdkman</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k8s</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CentOS Stream release 8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">k8s v1.22.4</a>
         		</li>
       		
 		</ul>
@@ -312,7 +362,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://blog.sofunty.cn/2021/04/02/sdkman/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://blog.sofunty.cn/2021/12/09/k8s-build/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -327,15 +377,11 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
-    <a href="/2021/12/09/k8s-build/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          k8s搭建
-        
-      </div>
-    </a>
   
+    <a href="/2021/04/02/sdkman/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有了SDKMAN,安装的系统装环境再也不用去一个个找包了</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
