@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.sofunty.cn/2022/01/07/k8s-deploy-app-springboot/</loc>
+    
+    <lastmod>2022-01-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.sofunty.cn/2021/12/09/k8s-build/</loc>
     
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +31,7 @@
 
   <url>
     <loc>https://blog.sofunty.cn/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -30,35 +39,49 @@
   
   <url>
     <loc>https://blog.sofunty.cn/tags/k8s/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.sofunty.cn/tags/CentOS-Stream-release-8/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.sofunty.cn/tags/k8s-v1-22-4/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.sofunty.cn/tags/deplay/</loc>
+    <lastmod>2022-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.sofunty.cn/tags/springboot/</loc>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.sofunty.cn/tags/sdkman/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.sofunty.cn/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2022-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
